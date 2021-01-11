@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package service;
+
+option go_package = ".;service";
+
+import "quest/internal/proto-files/domain/question.proto";
+
+//RepositoryService Definition
+
+service QuestService {
+  rpc SayHello(Question) returns (Question) {}
+}
+service RepositoryService {
+}
