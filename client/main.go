@@ -24,9 +24,8 @@ import (
 	"log"
 	"os"
 	"time"
-
+	"../protodefs"
 	"google.golang.org/grpc"
-	pb "github.org/dgedge/quest/protodefs/hello"
 )
 
 const (

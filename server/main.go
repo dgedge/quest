@@ -22,9 +22,8 @@ import (
 	"context"
 	"log"
 	"net"
-
+	pb "github.com/dgedge/quest/protodefs"
 	"google.golang.org/grpc"
-	pb "google.golang.org/grpc/examples/helloworld/helloworld"
 )
 
 const (
