@@ -1,0 +1,25 @@
+// question.proto
+syntax="proto3";
+
+package question;
+option go_package = ".;question";
+
+message Request{
+  int64 qno = 1;
+}
+
+
+message Question {
+  string text   = 1;
+}
+
+//RepositoryService Definition
+
+service QuestionService {
+  rpc getQuestion(Request) returns (Question) {}
+}
+
+
+
+
+
