@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"google.golang.org/grpc/reflection"
 	"log"
 	"net"
 
@@ -24,13 +25,19 @@ func main() {
 
 	srv := grpc.NewServer()
 	question.RegisterQuestionServiceServer(srv, &server{})
+	reflection.Register(srv)
+	if e := srv.Serve(lis); e != nil {
+		panic(err)
+	}
 
 	log.Fatalln(srv.Serve(lis))
 }
 
-func (s *server) QuestionService(ctx context.Context, question.Request ) (*question.Question, error) {
-	log.Println(fmt.Sprintf("Request: %g", request))
-
-	return &question.CreditResponse{Confirmation: fmt.Sprintf("Credited %g", request.GetAmount())}, nil
+func (s *server) GetQuestion(ctx context.Context, req *question.Request ) (*question.Question, error) {
+	log.Println(fmt.Sprintf("Request: %g", req))
+	qu := question.Question{
+		Text: "How big is it?",
+	}
+	return &qu, nil
 }
 

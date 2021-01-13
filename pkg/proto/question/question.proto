@@ -2,7 +2,7 @@
 syntax="proto3";
 
 package question;
-option go_package = ".;question";
+option go_package = "pkg/proto/question";
 
 message Request{
   int64 qno = 1;

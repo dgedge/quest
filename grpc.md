@@ -1,7 +1,14 @@
-# gRPC Services
+## Rest Web Services
+
+[Great Go framework for this](https://github.com/gin-gonic/gin)
+
+[Excellent Object-Relational Mapping](https://github.com/go-gorm/gorm)
+
+## gRPC Services
 ```bash
  go get -u google.golang.org/grpc
 ```
+[This is described here](https://gorm.io)
 
 It also needs *protbuf*
 

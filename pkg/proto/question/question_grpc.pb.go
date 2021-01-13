@@ -7,8 +7,6 @@ import (
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
-
-	"github.com/dgedge/quest/pkg/proto/question"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -19,7 +17,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type QuestionServiceClient interface {
-	GetQuestion(ctx context.Context, in *question.Request, opts ...grpc.CallOption) (*Question, error)
+	GetQuestion(ctx context.Context, in *Request, opts ...grpc.CallOption) (*Question, error)
 }
 
 type questionServiceClient struct {
