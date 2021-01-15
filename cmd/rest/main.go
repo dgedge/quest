@@ -1,16 +1,23 @@
 package main
 
 import (
-	"github.com/dgedge/quest/internal/controllers"
-	"github.com/dgedge/quest/internal/models"
 	"github.com/gin-gonic/gin"
 )
 
+var router *gin.Engine
+
+
 func main() {
-	r := gin.Default()
+	router = gin.Default()
+	// load templates
+	router.LoadHTMLGlob("cmd/rest/templates/*")
+	// Initialize the routes
+	InitializeRoutes()
+
+	/*
 	models.ConnectDataBase()
 
-	r.GET("/questions", controllers.FindQuestions)
-
-	r.Run()
+	router.GET("/questions", controllers.FindQuestions)
+	*/
+	router.Run()
 }
